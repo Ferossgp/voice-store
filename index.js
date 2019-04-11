@@ -30,7 +30,7 @@ miniSearch.addAll(documents);
 class Application extends Component {
     state = {
         center: {x:0,y:0},
-        screen: "map",
+        screen: "app",
     };
     onSearch = text => {
         let results = miniSearch.search(text);

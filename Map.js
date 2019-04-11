@@ -16,7 +16,8 @@ export default class App extends Component {
                     cropWidth={Dimensions.get('window').width}
                     cropHeight={Dimensions.get('window').height}
                     imageWidth={Dimensions.get('window').width}
-                    imageHeight={Dimensions.get('window').width / 815 *  2579}>
+                    imageHeight={Dimensions.get('window').width / 815 *  2579}
+                    centerOn={{...this.state.center, duration: 0, scale: 1}}>
                     <Image 
                         style={{width:Dimensions.get('window').width, height: Dimensions.get('window').width / 815 *  2579}} 
                         source={require('./map.png')}/>
