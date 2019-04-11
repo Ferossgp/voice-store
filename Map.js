@@ -6,6 +6,13 @@ const imageWidth = 815;
 const imageHeight = 2579;
 const {height, width} = Dimensions.get('window');
 export default class App extends Component {
+    constructor(props){
+        super(props);
+        this.ref = React.createRef();
+    }
+    componentDidMount(){
+            this.ref.current.centerOn({y: this.props.center.y + height / 2, x: 0, duration: 1, scale: 1});
+    }
   render() {
     console.log(this.props.center);
     return (
@@ -18,13 +25,14 @@ export default class App extends Component {
         </TouchableOpacity>
         <View style={{flex: 1}}>
           <ImageZoom
+            ref={this.ref}
             enableCenterFocus={false}
             cropWidth={width}
             cropHeight={height}
             imageWidth={width}
             imageHeight={width / imageWidth *  imageHeight}
-            centerOn={{y: width / imageWidth * this.props.center.y, x: 0, duration: 0, scale: 1}}>
-            <View>
+            centerOn={{y: this.props.center.y + height / 2, x: 0, duration: 1, scale: 1}}>
+            <View style={{width: width, height: width / imageWidth *  imageHeight}}>
               <Image
                 style={{width: width, height: width / imageWidth *  imageHeight}}
                 source={require('./map.png')}/>
