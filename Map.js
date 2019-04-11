@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, Dimensions, View, Text, TouchableOpacity } from 'react-native';
+import { Image, Dimensions, View, Text, TouchableOpacity, ToolbarAndroid } from 'react-native';
 import ImageZoom from 'react-native-image-pan-zoom';
 
 const imageWidth = 815;
@@ -16,15 +16,26 @@ export default class App extends Component {
                                    x: 0, duration: 0, scale: 1});
       }
     }
+  onActionSelected(position) {
+    if (position === 0) {
+      this.props.goToSearch();
+    }
+    if (position === 1) {
+      this.props.goToQr();
+    }
+  }
   render() {
     return (
       <View style={{flex: 1}}>
-        <TouchableOpacity
-          style={{height: 40, width: width,  alignItems:"center", justifyContent:"center"}}
-          onPress={this.props.goBack}
-          >
-          <Text style={{fontSize: 18, fontWeight: "bold", textAlign: "center"}}>Go Back</Text>
-        </TouchableOpacity>
+        <ToolbarAndroid
+          title='Aliya + Пятёрочка'
+          height={56}
+          width={width}
+          actions={[
+            {title: 'Search', icon: require('./mic.png'), show: 'always'},
+            {title: 'Location by QR code', icon: require('./qr.png'), show: 'always'}
+          ]}
+          onActionSelected={this.onActionSelected} />
         <View style={{flex: 1}}>
           <ImageZoom
             ref={this.ref}
