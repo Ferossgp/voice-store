@@ -60,9 +60,9 @@ miniSearch.addAll(documents);
 
 class Application extends Component {
     state = {
-      center: {x: 0, y: 0},
-      screen: "app",
-      myPosition: qrPositions[1].position
+      center: null,
+      screen: "map",
+      myPosition: null
     };
     onSearch = texts => {
       for(var text of texts){
