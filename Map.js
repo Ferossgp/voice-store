@@ -11,7 +11,8 @@ export default class App extends Component {
         this.ref = React.createRef();
     }
     componentDidMount(){
-            this.ref.current.centerOn({y: this.props.center.y + height / 2, x: 0, duration: 1, scale: 1});
+      this.ref.current.centerOn({y: Math.min(500, Math.max(-400, 1000 - this.props.center.y)),
+                                 x: 0, duration: 0, scale: 1});
     }
   render() {
     console.log(this.props.center);
@@ -30,8 +31,7 @@ export default class App extends Component {
             cropWidth={width}
             cropHeight={height}
             imageWidth={width}
-            imageHeight={width / imageWidth *  imageHeight}
-            centerOn={{y: this.props.center.y + height / 2, x: 0, duration: 1, scale: 1}}>
+            imageHeight={width / imageWidth *  imageHeight}>
             <View style={{width: width, height: width / imageWidth *  imageHeight}}>
               <Image
                 style={{width: width, height: width / imageWidth *  imageHeight}}

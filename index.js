@@ -41,7 +41,7 @@ const documents = [
     { id: 29, title: 'Tea', center: {x: 721, y: 1140}},
     { id: 30, title: 'Meat Pork Beef ', center: {x: 375, y: 1480}},
     { id: 30, title: 'chicken', center: {x: 375, y: 1360}},
-    { id: 31, title: 'chicken', center: {x: 533, y: 1300}},
+    { id: 31, title: 'chocolate', center: {x: 533, y: 1300}},
 ];
 
 const mapPos = documents.reduce(function(map, obj) {
