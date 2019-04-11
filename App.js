@@ -13,7 +13,7 @@ class VoiceTest extends Component {
     pitch: '',
     error: '',
     end: '',
-    started: '',
+    started: false,
     results: [],
     partialResults: [],
   };
@@ -37,7 +37,7 @@ class VoiceTest extends Component {
     // eslint-disable-next-line
     console.log('onSpeechStart: ', e);
     this.setState({
-      started: '√',
+      started: true,
     });
   };
 
@@ -97,7 +97,7 @@ class VoiceTest extends Component {
       recognized: '',
       pitch: '',
       error: '',
-      started: '',
+      started: false,
       results: [],
       partialResults: [],
       end: '',
@@ -140,7 +140,7 @@ class VoiceTest extends Component {
       recognized: '',
       pitch: '',
       error: '',
-      started: '',
+      started: false,
       results: [],
       partialResults: [],
       end: '',
@@ -152,8 +152,8 @@ class VoiceTest extends Component {
       <View style={styles.container}>
       <ImageBackground style={{flex: 1, width: width, padding: 20 }} source={require('./microphone.png')}>
         <Text style={styles.welcome}>Hey!</Text>
-        <Text style={styles.instructions}>What are you looking for today?</Text>
-        <Text style={styles.stat}>{`${this.state.started}`}</Text>
+        {this.state.started && <Text style={styles.instructions}>Speak now!</Text>}
+        {!this.state.started && <Text style={styles.instructions}>Press the button to start!</Text>}
         <Text style={styles.stat}>{`${this.state.error}`}</Text>
         {this.state.results.map((result, index) => {
           return (
@@ -218,6 +218,7 @@ const styles = StyleSheet.create({
   },
   welcome: {
     margin: 10,
+    marginBottom: 30,
     fontSize: 36,
     fontWeight: "600",
     color:"#16181E",

@@ -52,8 +52,8 @@ export default class App extends Component {
                 <>
                   <View style={{
                           position: "absolute",
-                          top: width / imageWidth * this.props.productPosition.y,
-                          left: width / imageWidth * this.props.productPosition.x,
+                          top: width / imageWidth * this.props.productPosition.y - 32,
+                          left: width / imageWidth * this.props.productPosition.x - 32,
                           width: 64,
                           height: 64,
                           opacity: 0.15,
@@ -63,8 +63,8 @@ export default class App extends Component {
                   </View>
                   <View style={{
                           position: "absolute",
-                          top: width / imageWidth * this.props.productPosition.y + 21,
-                          left: width / imageWidth * this.props.productPosition.x + 21,
+                          top: width / imageWidth * this.props.productPosition.y + 21 - 32,
+                          left: width / imageWidth * this.props.productPosition.x + 21 - 32,
                           height: 22,
                           width: 22,
                           borderRadius: 22,
@@ -77,8 +77,8 @@ export default class App extends Component {
                 <>
                   <View style={{
                           position: "absolute",
-                          top: width / imageWidth * this.props.myPosition.y,
-                          left: width / imageWidth * this.props.myPosition.x,
+                          top: width / imageWidth * this.props.myPosition.y - 32,
+                          left: width / imageWidth * this.props.myPosition.x - 32,
                           width: 64,
                           height: 64,
                           opacity: 0.15,
@@ -88,8 +88,8 @@ export default class App extends Component {
                   </View>
                   <View style={{
                           position: "absolute",
-                          top: width / imageWidth * this.props.myPosition.y + 21,
-                          left: width / imageWidth * this.props.myPosition.x + 21,
+                          top: width / imageWidth * this.props.myPosition.y + 21 - 32,
+                          left: width / imageWidth * this.props.myPosition.x + 21 - 32,
                           height: 22,
                           width: 22,
                           borderRadius: 22,
