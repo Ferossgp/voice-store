@@ -55,17 +55,20 @@ miniSearch.addAll(documents);
 
 class Application extends Component {
     state = {
-        center: {x:0,y:0},
+      center: {x: 0, y: 0},
         screen: "app",
     };
-    onSearch = text => {
+    onSearch = texts => {
+      for(var text of texts){
         let results = miniSearch.search(text);
         if(results.length > 0){
-            this.setState({
-                screen: "map",
-                center: mapPos[results[0].id],
-            });
+          this.setState({
+            screen: "map",
+            center: mapPos[results[0].id],
+          });
+          return;
         }
+      }
     };
     goBack = () => {
         this.setState({

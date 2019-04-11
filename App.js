@@ -69,7 +69,7 @@ class VoiceTest extends Component {
     // eslint-disable-next-line
     console.log('onSpeechResults: ', e);
     if(e.value && e.value.length){
-      this.props.onSearch(e.value[0]);
+      this.props.onSearch(e.value);
     }
     this.setState({
       results: e.value,
