@@ -17,6 +17,7 @@ export default class App extends Component {
       }
     }
   render() {
+      console.log(this.props.myPosition);
     return (
       <View style={{flex: 1}}>
         <TouchableOpacity
@@ -38,54 +39,54 @@ export default class App extends Component {
                 style={{width: width, height: width / imageWidth *  imageHeight}}
                 source={require('./map.png')}/>
               {this.props.center && (
-                <View>
+                <>
                   <View style={{
                           position: "absolute",
                           top: width / imageWidth * this.props.center.y,
                           left: width / imageWidth * this.props.center.x,
-                          width: 32,
-                          height: 32,
+                          width: 64,
+                          height: 64,
                           opacity: 0.15,
                           backgroundColor: "#EB5757",
-                        borderRadius: 32}}
+                        borderRadius: 64}}
                         >
                   </View>
                   <View style={{
                           position: "absolute",
-                          top: width / imageWidth * this.props.center.y + 11,
-                          left: width / imageWidth * this.props.center.x + 11,
-                          height: 10,
-                          width: 10,
-                          borderRadius: 10,
+                          top: width / imageWidth * this.props.center.y + 21,
+                          left: width / imageWidth * this.props.center.x + 21,
+                          height: 22,
+                          width: 22,
+                          borderRadius: 22,
                           backgroundColor: "#EB5757",
                         }}>
                   </View>
-                </View>
+                </>
               )}
               {this.props.myPosition && (
-                <View>
+                <>
                   <View style={{
                           position: "absolute",
                           top: width / imageWidth * this.props.myPosition.y,
                           left: width / imageWidth * this.props.myPosition.x,
-                          width: 32,
-                          height: 32,
+                          width: 64,
+                          height: 64,
                           opacity: 0.15,
                           backgroundColor: "blue",
-                        borderRadius: 32}}
+                        borderRadius: 64}}
                         >
                   </View>
                   <View style={{
                           position: "absolute",
-                          top: width / imageWidth * this.props.myPosition.y + 11,
-                          left: width / imageWidth * this.props.myPosition.x + 11,
-                          height: 10,
-                          width: 10,
-                          borderRadius: 10,
+                          top: width / imageWidth * this.props.myPosition.y + 21,
+                          left: width / imageWidth * this.props.myPosition.x + 21,
+                          height: 22,
+                          width: 22,
+                          borderRadius: 22,
                           backgroundColor: "cyan",
                         }}>
                   </View>
-                </View>
+                </>
               )}
             </View>
           </ImageZoom>

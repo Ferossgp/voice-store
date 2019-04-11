@@ -46,10 +46,13 @@ const documents = [
     { id: 31, title: 'chocolate', center: {x: 533, y: 1300}},
 ];
 
-const qrPositions = [
-  { id: 1, position: {x: 730, y: 2500}},
-  { id: 2, position: {x: 300, y: 900}}
-];
+const qrPositions = {
+  1: {x: 730, y: 2500},
+  2: {x: 300, y: 900},
+  3: {x: 300, y: 900},
+  4: {x: 300, y: 900},
+  5: {x: 300, y: 900}
+};
 
 const mapPos = documents.reduce(function(map, obj) {
     map[obj.id] = obj.center;
@@ -63,7 +66,7 @@ miniSearch.addAll(documents);
 class Application extends Component {
     state = {
       center: null,
-      screen: "map",
+      screen: "scanner",
       myPosition: null
     };
     onSearch = texts => {
@@ -77,6 +80,20 @@ class Application extends Component {
           return;
         }
       }
+    };
+    onScan = id => {
+
+        if(id){
+            this.setState({
+                myPosition: qrPositions[id],
+                screen: "map",
+            });
+        }
+    };
+    goBack = () => {
+        this.setState({
+            screen: "map",
+        });
     };
     goToSearch = () => {
         this.setState({
@@ -94,8 +111,8 @@ class Application extends Component {
             screen = <App onSearch={this.onSearch}/>;
         }else if (this.state.screen == "map") {
             screen = <Map goToSearch={this.goToSearch} goToQr={this.goToQr} myPosition={this.state.myPosition} center={this.state.center}/>;
-        }else if (this.state.screen == "screen"){
-            screen = <Scanner/>
+        }else if (this.state.screen == "scanner"){
+            screen = <Scanner onScan={this.onScan} goBack={this.goBack}/>
         }
         return (
             <View style={{flex:1}}>
