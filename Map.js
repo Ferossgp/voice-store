@@ -16,7 +16,7 @@ export default class App extends Component {
                                    x: 0, duration: 0, scale: 1});
       }
     }
-  onActionSelected(position) {
+  onActionSelected = (position) => {
     if (position === 0) {
       this.props.goToSearch();
     }
@@ -25,7 +25,6 @@ export default class App extends Component {
     }
   }
   render() {
-      console.log(this.props.myPosition);
     return (
       <View style={{flex: 1}}>
         <ToolbarAndroid
