@@ -48,12 +48,12 @@ export default class App extends Component {
               <Image
                 style={{width: width, height: width / imageWidth *  imageHeight}}
                 source={require('./map.png')}/>
-              {this.props.center && (
+              {this.props.productPosition && (
                 <>
                   <View style={{
                           position: "absolute",
-                          top: width / imageWidth * this.props.center.y,
-                          left: width / imageWidth * this.props.center.x,
+                          top: width / imageWidth * this.props.productPosition.y,
+                          left: width / imageWidth * this.props.productPosition.x,
                           width: 64,
                           height: 64,
                           opacity: 0.15,
@@ -63,8 +63,8 @@ export default class App extends Component {
                   </View>
                   <View style={{
                           position: "absolute",
-                          top: width / imageWidth * this.props.center.y + 21,
-                          left: width / imageWidth * this.props.center.x + 21,
+                          top: width / imageWidth * this.props.productPosition.y + 21,
+                          left: width / imageWidth * this.props.productPosition.x + 21,
                           height: 22,
                           width: 22,
                           borderRadius: 22,

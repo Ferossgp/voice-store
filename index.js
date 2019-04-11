@@ -90,18 +90,19 @@ class Application extends Component {
           this.setState({
             screen: "map",
             center: mapPos[results[0].id],
+            productPosition: mapPos[results[0].id]
           });
           return;
         }
       }
     };
     onScan = id => {
-
         if(id){
-            this.setState({
-                myPosition: qrPositions[id],
-                screen: "map",
-            });
+          this.setState({
+            myPosition: qrPositions[id],
+            center: qrPositions[id],
+            screen: "map",
+          });
         }
     };
     goBack = () => {
@@ -124,7 +125,12 @@ class Application extends Component {
         if(this.state.screen == "app"){
             screen = <App onSearch={this.onSearch}/>;
         }else if (this.state.screen == "map") {
-            screen = <Map goToSearch={this.goToSearch} goToQr={this.goToQr} myPosition={this.state.myPosition} center={this.state.center}/>;
+          screen = (<Map
+                    goToSearch={this.goToSearch}
+                    goToQr={this.goToQr}
+                    myPosition={this.state.myPosition}
+                    productPosition={this.state.productPosition}
+                    center={this.state.center}/>);
         }else if (this.state.screen == "scanner"){
             screen = <Scanner onScan={this.onScan} goBack={this.goBack}/>
         }
