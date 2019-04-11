@@ -10,7 +10,9 @@
     "minisearch": "^1.2.0",
     "react": "16.8.3",
     "react-native": "0.59.3",
+    "react-native-camera": "^2.3.0",
     "react-native-image-pan-zoom": "^2.1.11",
+    "react-native-qrcode-scanner": "^1.1.2",
     "react-native-voice": "^0.2.6"
   },
   "devDependencies": {

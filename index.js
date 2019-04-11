@@ -5,8 +5,10 @@ import React, { Component } from 'react';
 import {AppRegistry, View, Text} from 'react-native';
 import App from './App';
 import Map from './Map';
+import Scanner from './Scanner';
 import {name as appName} from './app.json';
 import MiniSearch from 'minisearch';
+import { throwStatement } from '@babel/types';
 
 // A collection of documents for our examples
 const documents = [
@@ -76,22 +78,24 @@ class Application extends Component {
         }
       }
     };
-    goBack = () => {
+    goToSearch = () => {
         this.setState({
             screen: "app",
         });
     };
-
+    goToQr = () => {
+        this.setState({
+            screen: "scanner",
+        });
+    };
     render() {
         let screen;
         if(this.state.screen == "app"){
             screen = <App onSearch={this.onSearch}/>;
-        }else{
-          screen = <Map
-                    goBack={this.goBack}
-                    center={this.state.center}
-                    myPosition={this.state.myPosition}
-                    />;
+        }else if (this.state.screen == "map") {
+            screen = <Map goToSearch={this.goToSearch} goToQr={this.goToQr} myPosition={this.state.myPosition} center={this.state.center}/>;
+        }else if (this.state.screen == "screen"){
+            screen = <Scanner/>
         }
         return (
             <View style={{flex:1}}>
