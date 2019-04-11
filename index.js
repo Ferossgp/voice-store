@@ -2,7 +2,7 @@
  * @format
  */
 import React, { Component } from 'react';
-import {AppRegistry, View, Text} from 'react-native';
+import {AppRegistry, View, Text, BackHandler} from 'react-native';
 import App from './App';
 import Map from './Map';
 import Scanner from './Scanner';
@@ -66,9 +66,23 @@ miniSearch.addAll(documents);
 class Application extends Component {
     state = {
       center: null,
-      screen: "scanner",
+      screen: "map",
       myPosition: null
     };
+  componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+  }
+
+  handleBackPress = () => {
+    this.setState({
+      screen: 'map'
+    });
+    return true;
+  }
     onSearch = texts => {
       for(var text of texts){
         let results = miniSearch.search(text);
