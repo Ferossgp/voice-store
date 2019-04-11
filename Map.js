@@ -57,6 +57,27 @@ export default class App extends Component {
                       backgroundColor: "#EB5757",
                     }}>
               </View>
+              <View style={{
+                      position: "absolute",
+                      top: width / imageWidth * this.props.myPosition.y,
+                      left: width / imageWidth * this.props.myPosition.x,
+                      width: 32,
+                      height: 32,
+                      opacity: 0.15,
+                      backgroundColor: "blue",
+                    borderRadius: 32}}
+                    >
+              </View>
+              <View style={{
+                      position: "absolute",
+                      top: width / imageWidth * this.props.myPosition.y + 11,
+                      left: width / imageWidth * this.props.myPosition.x + 11,
+                      height: 10,
+                      width: 10,
+                      borderRadius: 10,
+                      backgroundColor: "cyan",
+                    }}>
+              </View>
             </View>
           </ImageZoom>
         </View>

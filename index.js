@@ -44,6 +44,11 @@ const documents = [
     { id: 31, title: 'chocolate', center: {x: 533, y: 1300}},
 ];
 
+const qrPositions = [
+  { id: 1, position: {x: 730, y: 2500}},
+  { id: 2, position: {x: 300, y: 900}}
+];
+
 const mapPos = documents.reduce(function(map, obj) {
     map[obj.id] = obj.center;
     return map;
@@ -56,7 +61,8 @@ miniSearch.addAll(documents);
 class Application extends Component {
     state = {
       center: {x: 0, y: 0},
-        screen: "app",
+      screen: "app",
+      myPosition: qrPositions[1].position
     };
     onSearch = texts => {
       for(var text of texts){
@@ -81,7 +87,11 @@ class Application extends Component {
         if(this.state.screen == "app"){
             screen = <App onSearch={this.onSearch}/>;
         }else{
-            screen = <Map goBack={this.goBack} center={this.state.center}/>;
+          screen = <Map
+                    goBack={this.goBack}
+                    center={this.state.center}
+                    myPosition={this.state.myPosition}
+                    />;
         }
         return (
             <View style={{flex:1}}>
