@@ -47,11 +47,11 @@ const documents = [
 ];
 
 const qrPositions = {
-  1: {x: 730, y: 2500},
-  2: {x: 300, y: 900},
-  3: {x: 300, y: 900},
-  4: {x: 300, y: 900},
-  5: {x: 300, y: 900}
+  1: {x: 630, y: 2170},
+  2: {x: 670, y: 1570},
+  3: {x: 250, y: 1120},
+  4: {x: 600, y: 600},
+  5: {x: 400, y: 170}
 };
 
 const mapPos = documents.reduce(function(map, obj) {
